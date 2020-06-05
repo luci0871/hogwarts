@@ -17,21 +17,58 @@
 
     <main>
 
-<!------THEMES------>
-<label id="theme-changer">
-    Choose theme
-    <select name="theme" id="theme">
-       <option value="none">None</option>
-       <option value="gryffindor">Gryffindor theme</option>
-       <option value="hufflepuff">Hufflepuff theme</option>
-       <option value="ravenclaw">Ravenclaw theme</option>
-       <option value="slytherin">Slytherin theme</option>
+<!------HOUSES------>
+<label id="house-changer">
+    Choose House
+    <select name="house" id="house">
+       <option value="None">None</option>
+       <option value="Gryffindor">Gryffindor</option>
+       <option value="Hufflepuff">Hufflepuff</option>
+       <option value="Ravenclaw">Ravenclaw</option>
+       <option value="Slytherin">Slytherin</option>
      </select>
    </label>
 
 
-<!------SEARCH------>    
-<!-- copied from W3SCHOOLS (https://www.w3schools.com/howto/howto_js_filter_lists.asp) -->
+<!------SEARCH BOX------>    
+<!-- got it from (https://www.w3schools.com/howto/howto_js_filter_lists.asp) -->
 <input type="text" id="myInput" onkeyup="mySearch()" placeholder="Search for names.." title="Type in a name">
 
 
+<h1>Students at Hogwarts</h1>
+<!------FILTERING------>
+<div id="filters">
+  <p class="filterTitle"><span>Filter by House:</span></p>
+  <button class="filter" data-action="filter" data-filter="Gryffindor"><img src="houses/gryffindor.png" alt="Gryffindor" class="buttonFilter"></button>
+  <button class="filter" data-action="filter" data-filter="Slytherin" ><img src="houses/slytherin.png" alt="Slytherin" class="buttonFilter"></button>
+  <button class="filter" data-action="filter" data-filter="Hufflepuff"><img src="houses/hufflepuff.png" alt="Hufflepuff" class="buttonFilter"></button>
+  <button class="filter" data-action="filter" data-filter="Ravenclaw"><img src="houses/ravenclaw.png" alt="Ravenclaw" class="buttonFilter"></button>
+  <button class="filter" data-action="filter" data-filter="*"><img src="houses/hogwarts.png" alt="Hogwarts Crest" class="buttonFilter"></button>
+</div>
+
+<div id = "mainPanel">
+
+<div class="totalnumber">
+  <span class="gryfNumber">Gryffindor (0)</span>
+  <span class="slyNumber">Slytherin (0)</span>
+  <span class="huffNumber">Hufflepuff (0)</span>
+  <span class="ravNumber">Ravenclaw (0)</span>
+  <span class="totalNumber">Total(0)</span>
+</div>
+
+<!------SORTING STUDENTS by Name or House------>
+<div id="sortstudents">
+    <p class="sortBy" data-action="sort" data-sort-direction="asc" data-sort="firstName">Sort by: First Name</p>
+    <p class="sortBy" data-action="sort" data-sort-direction="asc" data-sort="lastName">Sort by: Last Name</p>
+    <p class="sortBy" data-action="sort" data-sort-direction="asc" data-sort="houseName">Sort by: House Name</p>
+  </div>
+
+  </body>
+  
+  </main>
+
+  
+  </html>
+  
+  
+  
