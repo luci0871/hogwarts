@@ -17,16 +17,21 @@
 
     <main>
 
+<!------THEMES------>
+<label id="theme-changer">
+    Choose theme
+    <select name="theme" id="theme">
+       <option value="none">None</option>
+       <option value="gryffindor">Gryffindor theme</option>
+       <option value="hufflepuff">Hufflepuff theme</option>
+       <option value="ravenclaw">Ravenclaw theme</option>
+       <option value="slytherin">Slytherin theme</option>
+     </select>
+   </label>
 
 
-
-
-
-    </main>
-    
-</body>
-
-</html>
-
+<!------SEARCH------>    
+<!-- copied from W3SCHOOLS (https://www.w3schools.com/howto/howto_js_filter_lists.asp) -->
+<input type="text" id="myInput" onkeyup="mySearch()" placeholder="Search for names.." title="Type in a name">
 
 
