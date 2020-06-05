@@ -12,14 +12,14 @@
 <body houseStyle="">
 
     <header>
-    <div class="studentsImage"></div>
+    <div class="heroImage"></div>
     </header>
 
     <main>
 
-<!------HOUSES------>
+<!------HOUSE THEMES------>
 <label id="house-changer">
-    Choose House
+    Choose House Theme 
     <select name="house" id="house">
        <option value="None">None</option>
        <option value="Gryffindor">Gryffindor</option>
@@ -115,7 +115,7 @@
   <div id="onlyoneofeachgender" class="dialog">
     <div class="dialogcontent">
       <button class="closebutton">close</button>
-      <h1>You can only have one prefect of each gender</h1>
+      <h1>You can only have one prefect of each gender!</h1>
       <h2>Remove one to appoint another</h2>
       <p><button data-action="remove1">remove</button> <span class="student1">NAME, the TYPE</span></p>
     </div>
@@ -133,6 +133,24 @@
   
   </main>
 
+<!-------MODAL------->
+<div class="modal-background hide" >
+  
+    <div  class="modal-content" id="modal-content" data-house="">
+      <img class="modalHouse">
+      <img id="imagePrefects">
+      <p class="modalStudentsFirst" houseStyle="">First Name</p>
+      <p class="modalStudentsMiddle">Middle Name</p>
+      <p class="modalStudentsLast">Last Name</p>
+      <p class="modalPrefect">Is the student a Prefect or not</p>
+      <p class="modalExpelled">Is the student Expelled or not</p>
+      <img class="modalImg">
+      
+    </div>
+    </div>
+    
+    </html>
+    
   
   </html>
   
