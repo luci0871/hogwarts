@@ -75,10 +75,58 @@
 </div>
 
 
-<!------HACKING the system------>
+<!------HACKING The Student List------>
 
-<button class="hackTheSystem" id="typewriter">Hack the System!</button>
+<button class="hackTheStudentList" id="typewriter">Hack the List of Students!</button>
 
+
+<!-----MAIN TEMPLATE--------->
+<template class="mainTemplate">
+    <article>
+      <img class="studentImg">
+      <div data-field="star">⭐</div>
+      <p class="studentsFirst"></p>
+      <p class="studentsMiddle"></p>
+      <p class="studentsLast"></p>
+      <p class="studentsFull"></p>
+      <p class="gender"></p>
+      <p class="houseName"></p>
+    <button>More</button>
+    <button class="expell">Expell</button>
+   
+    </article>
+  </template>
+  <section id="mainStudents">
+    
+  </section>
+
+   <!------IF TOO MANY PREFECTS----->
+
+   <div id="maxtwoprefects" class="dialog">
+    <div class="dialogcontent">
+      <button class="closebutton">close</button>
+      <h1>You can only have two Prefects!</h1>
+      <h2>Remove one to appoint another</h2>
+      <p><button data-action="remove1">remove</button> <span class="student1">NAME, the TYPE</span></p>
+      <p><button data-action="remove2">remove</button> <span class="student2">NAME, the TYPE</span></p>
+    </div>
+  </div>
+
+  <div id="onlyoneofeachgender" class="dialog">
+    <div class="dialogcontent">
+      <button class="closebutton">close</button>
+      <h1>You can only have one prefect of each gender</h1>
+      <h2>Remove one to appoint another</h2>
+      <p><button data-action="remove1">remove</button> <span class="student1">NAME, the TYPE</span></p>
+    </div>
+  </div>
+
+  
+  <script src="jscript.js"></script>
+
+</body>
+
+</main>
 
 
   </body>
