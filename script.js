@@ -118,7 +118,7 @@ function filterGry(){
   let onlyGry = allStudents.filter(displayGry);
   displayList(onlyGry)
   //filter counter
-  document.querySelector(".gryfNumber").textContent = `Gryffindor (${onlyGry.length})`;
+  document.querySelector(".gryfCount").textContent = `Gryffindor (${onlyGry.length})`;
   function displayGry(student){
   return student.house === "Gryffindor";
 } 
@@ -128,7 +128,7 @@ function filterSly(){
   let onlySly = allStudents.filter(displaySly);
   displayList(onlySly)
   //filter counter
-  document.querySelector(".slyNumber").textContent = `Slytherin (${onlySly.length})`;
+  document.querySelector(".slyCount").textContent = `Slytherin (${onlySly.length})`;
   function displaySly(student){
   return student.house === "Slytherin";
 } 
@@ -137,7 +137,7 @@ function filterHuf(){
   let onlyHuf = allStudents.filter(displayHuf);
   displayList(onlyHuf)
   //filter counter
-  document.querySelector(".huffNumber").textContent = `Hufflepuff (${onlyHuf.length})`;
+  document.querySelector(".huffCount").textContent = `Hufflepuff (${onlyHuf.length})`;
   function displayHuf(student){
   return student.house === "Hufflepuff";
 } 
@@ -146,7 +146,7 @@ function filterRav(){
   let onlyRav = allStudents.filter(displayRav);
   displayList(onlyRav)
   //filter counter
-  document.querySelector(".ravNumber").textContent = `Ravenclaw (${onlyRav.length})`;
+  document.querySelector(".ravCount").textContent = `Ravenclaw (${onlyRav.length})`;
   function displayRav(student){
   return student.house === "Ravenclaw";
 } 
@@ -154,7 +154,7 @@ function filterRav(){
 function filterAll(){
 displayList(allStudents)
 //filter counter
-document.querySelector(".totalNumber").textContent = `Total (${allStudents.length})`;
+document.querySelector(".totalCount").textContent = `Total (${allStudents.length})`;
 }
 
 /* ---------------------------------------------LISTS------------------------------------------------------------------------------- */

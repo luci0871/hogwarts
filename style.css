@@ -248,7 +248,7 @@ p.showExpelled{
   grid-area: expelled;
   justify-self: left;
 }
-.totalNumber{
+.counters{
   grid-area: counter;
   display: inline-grid;
   justify-self: left;
@@ -268,7 +268,7 @@ p.showExpelled{
 
 /*-------------------------------COUNTERS---------------------------------------------*/
 
-.gryfNumber, .slyNumber, .huffNumber, .ravNumber, .totalNumber {
+.gryfCount, .slyCount, .huffCount, .ravCount, .totalCount {
   background-color: rgba(255,255,255, 0.8);
   padding: 10px;
   color: black;
@@ -378,8 +378,6 @@ grid-area: modalLast;
   --primary-color: #2a623d;
   --background: url(other_pictures/backSly.jpg);
 }
-
-
 
 
 
