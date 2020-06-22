@@ -58,7 +58,7 @@ function start(){
   document.querySelector(".showExpelled").addEventListener("click", showExpelled);
   document.querySelector(".restore").addEventListener("click", restoreExpelled);
   //Hack the System
-  document.querySelector(".hackTheSystem").addEventListener("click", hackTheSystem);
+  document.querySelector(".hackTheStudentList").addEventListener("click", hackTheStudentList);
 }
 
 async function loadJSON(){
@@ -118,7 +118,7 @@ function filterGry(){
   let onlyGry = allStudents.filter(displayGry);
   displayList(onlyGry)
   //filter counter
-  document.querySelector(".gryfCount").textContent = `Gryffindor (${onlyGry.length})`;
+  document.querySelector(".gryfNumber").textContent = `Gryffindor (${onlyGry.length})`;
   function displayGry(student){
   return student.house === "Gryffindor";
 } 
@@ -128,7 +128,7 @@ function filterSly(){
   let onlySly = allStudents.filter(displaySly);
   displayList(onlySly)
   //filter counter
-  document.querySelector(".slyCount").textContent = `Slytherin (${onlySly.length})`;
+  document.querySelector(".slyNumber").textContent = `Slytherin (${onlySly.length})`;
   function displaySly(student){
   return student.house === "Slytherin";
 } 
@@ -137,7 +137,7 @@ function filterHuf(){
   let onlyHuf = allStudents.filter(displayHuf);
   displayList(onlyHuf)
   //filter counter
-  document.querySelector(".huffCount").textContent = `Hufflepuff (${onlyHuf.length})`;
+  document.querySelector(".huffNumber").textContent = `Hufflepuff (${onlyHuf.length})`;
   function displayHuf(student){
   return student.house === "Hufflepuff";
 } 
@@ -146,7 +146,7 @@ function filterRav(){
   let onlyRav = allStudents.filter(displayRav);
   displayList(onlyRav)
   //filter counter
-  document.querySelector(".ravCount").textContent = `Ravenclaw (${onlyRav.length})`;
+  document.querySelector(".ravNumber").textContent = `Ravenclaw (${onlyRav.length})`;
   function displayRav(student){
   return student.house === "Ravenclaw";
 } 
@@ -154,14 +154,14 @@ function filterRav(){
 function filterAll(){
 displayList(allStudents)
 //filter counter
-document.querySelector(".totalCount").textContent = `Total (${allStudents.length})`;
+document.querySelector(".totalNumber").textContent = `Total (${allStudents.length})`;
 }
 
 /* ---------------------------------------------LISTS------------------------------------------------------------------------------- */
 
 function displayList(students) {
   // clear the list
-  document.querySelector("#studentsMain").innerHTML = "";
+  document.querySelector("#mainStudents").innerHTML = "";
   // build a new list
   students.forEach(displayStudent);
   //console.log(allStudents)
@@ -175,7 +175,7 @@ function displayStudent(student) {
   //Select a Theme:
   document.querySelector("select#theme").addEventListener("change", selectTheme);
   //Clone template
-  const template = document.querySelector(".templateMain").content;
+  const template = document.querySelector(".mainTemplate").content;
   const studentCopy = template.cloneNode(true);
   //star
   studentCopy.querySelector("[data-field=star").dataset.star = student.star;  
@@ -199,18 +199,18 @@ function displayStudent(student) {
  //Overview: 
  studentCopy.querySelector(".studentsFull").textContent = student.newName;
  studentCopy.querySelector(".houseName").textContent = student.house;
- studentCopy.querySelector(".studentPic").src = `pictures/${student.lastName.toLowerCase() + "_" + student.firstName[0].substring(0, 1).toLowerCase() + ".png"}`;
+ studentCopy.querySelector(".studentImg").src = `pictures/${student.lastName.toLowerCase() + "_" + student.firstName[0].substring(0, 1).toLowerCase() + ".png"}`;
  //------- fix images
   if (student.firstName == "Padma") {
-    studentCopy.querySelector(".studentPic").src = "pictures/" + student.lastName.toLowerCase() + "_" + "padme" + ".png";
+    studentCopy.querySelector(".studentImg").src = "pictures/" + student.lastName.toLowerCase() + "_" + "padme" + ".png";
   } else if (student.lastName == "Patil") {
-    studentCopy.querySelector(".studentPic").src = "pictures/" + student.lastName.toLowerCase() + "_" + student.firstName.toLowerCase() + ".png";
+    studentCopy.querySelector(".studentImg").src = "pictures/" + student.lastName.toLowerCase() + "_" + student.firstName.toLowerCase() + ".png";
   } else if (student.firstName == "Leanne") {
-    studentCopy.querySelector(".studentPic").src = "pictures/" + "li_s" +  ".png";
+    studentCopy.querySelector(".studentImg").src = "pictures/" + "li_s" +  ".png";
   } else if (student.lastName == "Finch-fletchley") {
-    studentCopy.querySelector(".studentPic").src = "pictures/" + "fletchley" + "_" + student.firstName.substring(0, 1).toLowerCase() + ".png";
+    studentCopy.querySelector(".studentImg").src = "pictures/" + "fletchley" + "_" + student.firstName.substring(0, 1).toLowerCase() + ".png";
   } else {
-    studentCopy.querySelector(".studentPic").src = "pictures/" + student.lastName.toLowerCase() + "_" + student.firstName[0].substring(0, 1).toLowerCase() + ".png";
+    studentCopy.querySelector(".studentImg").src = "pictures/" + student.lastName.toLowerCase() + "_" + student.firstName[0].substring(0, 1).toLowerCase() + ".png";
   }
  
  //-------------------MODAL--------------------
@@ -262,7 +262,7 @@ function displayStudent(student) {
 });
 
   //3.append
-  document.querySelector("#studentsMain").appendChild(studentCopy);
+  document.querySelector("#mainStudents").appendChild(studentCopy);
   //console.log(student)
 }
 
@@ -408,33 +408,33 @@ function sortHouse(){
     console.log(prefects[0])
     console.log(prefects)
     console.log(student.star)
-    document.querySelector("#onlyonekind").classList.add("show")
+    document.querySelector("#onlyoneofeachgender").classList.add("show")
     //find the one that has the same type:
     console.log(prefects[0].firstName)
-    document.querySelector("#onlyonekind .student1").textContent = `${prefects[0].newName} (${prefects[0].gender})`;
-    document.querySelector("#onlyonekind [data-action=remove1]").addEventListener("click", function() {
+    document.querySelector("#onlyoneofeachgender .student1").textContent = `${prefects[0].newName} (${prefects[0].gender})`;
+    document.querySelector("#onlyoneofeachgender [data-action=remove1]").addEventListener("click", function() {
     console.log(prefects[0])
     //give the value False to the duplicate that has to be removed:
     prefects[0].star = false;
     student.star = true;
     //immediately close dialog:
-    document.querySelector("#onlyonekind").classList.remove("show")
+    document.querySelector("#onlyoneofeachgender").classList.remove("show")
     displayList(allStudents);  
     })
     //option close dialog:   
-    document.querySelector("#onlyonekind .closebutton").addEventListener("click", function () {
-    document.querySelector("#onlyonekind").classList.remove("show")
+    document.querySelector("#onlyoneofeachgender .closebutton").addEventListener("click", function () {
+    document.querySelector("#onlyoneofeachgender").classList.remove("show")
     })     
     displayList(allStudents);
   }
 
 //user cannot select more than 2:
  if (prefects.length>2 ){
-    document.querySelector("#onlytwoprefects").classList.add("show");
+    document.querySelector("#maxtwoprefects").classList.add("show");
     console.log(prefects)
     console.log(student.star)
-    document.querySelector("#onlytwoprefects .student1").textContent = `${prefects[0].newName} (${prefects[0].gender})`;
-    document.querySelector("#onlytwoprefects [data-action=remove1]").addEventListener("click", function() {
+    document.querySelector("#maxtwoprefects .student1").textContent = `${prefects[0].newName} (${prefects[0].gender})`;
+    document.querySelector("#maxtwoprefects [data-action=remove1]").addEventListener("click", function() {
     console.log(prefects[0])
     //sets to false the student to be removed:
     prefects[0].star = false;
@@ -442,17 +442,17 @@ function sortHouse(){
     //selects the student user is clicking now:
     student.star= true;
     displayList(allStudents)
-    document.querySelector("#onlytwoprefects").classList.remove("show")
+    document.querySelector("#maxtwoprefects").classList.remove("show")
     }) 
     //second button:
-    document.querySelector("#onlytwoprefects .student2").textContent = `${prefects[1].newName} (${prefects[1].gender})`;
-    document.querySelector("#onlytwoprefects [data-action=remove2]").addEventListener("click", function() {
+    document.querySelector("#maxtwoprefects .student2").textContent = `${prefects[1].newName} (${prefects[1].gender})`;
+    document.querySelector("#maxtwoprefects [data-action=remove2]").addEventListener("click", function() {
     console.log(prefects[1])
     prefects[1].star = false;
     // winners[0].star = true;
     student.star= true;
     displayList(allStudents)
-    document.querySelector("#onlytwoprefects").classList.remove("show")
+    document.querySelector("#maxtwoprefects").classList.remove("show")
     })       
     }      
     prefects = allStudents.filter(students=> students.star == true );
@@ -497,7 +497,7 @@ function restoreExpelled(){
 
 /* ---------------------------------------------HACK THE SYSTEM------------------------------------------------------------------------------- */
 
-function hackTheSystem(){
+function hackTheStudentList(){
   console.log(allStudents)
   console.log(hackedOne)
   //allStudents = allStudents.push(hackedOne);
@@ -524,7 +524,7 @@ function selectTheme(){
 /* ---------------------------------------------TYPEWRITER------------------------------------------------------------------------------- */
 
 
-const element = document.querySelector(".hackTheSystem");
+const element = document.querySelector(".hackTheStudentList");
 typewriter(element, done);
 
 function done(){
@@ -532,7 +532,7 @@ function done(){
 }
 
 function typewriter(element, callback){ 
-let sentence = document.querySelector(".hackTheSystem").textContent;
+let sentence = document.querySelector(".hackTheStudentList").textContent;
 //console.log(sentence)
 let counter = 0;
 //console.log(counter)
