@@ -2,12 +2,12 @@
     --h1Color: black;
     --primary-color: white;
     --button: rgba(218, 198, 214, 0.863);
-    --background: url(img_other/introbackground.jpg);
+    --background: url(other_pictures/introbackground.jpg);
 }
 
 
 .headerPic {
-    background-image: url(img_other/hogwartsbanner.jpg);
+    background-image: url(other_pictures/hogwartsbanner.jpg);
     background-position: 50%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -64,10 +64,10 @@ select#theme {
     font-size: inherit;
 }
 
-#theme-changer {
+#shift-house-theme {
     color: var(--h1Color);
     font-family: 'Quattrocento', serif;
-    font-size: 16px;
+    font-size: 20px;
     font-weight: bold;
 }
 
@@ -162,7 +162,7 @@ article {
 
 /*-------------------------------hack---------------------------------------------*/
 
-.hackTheSystem {
+.hackTheStudentList {
     margin: 20px;
     float: right;
     font-family: 'Cinzel', serif;
@@ -180,13 +180,16 @@ article {
 
 #sorting {
     display: inline-block;
-    color: white;
+    color: black;
     background-color: transparent;
-    font-size: 15px;
+    font-size: 20px;
     border-radius: 5px;
+    font-weight: bold;
+
+    
 }
 
-.sortBy {
+.organizeBy {
     font-size: 16px;
     font-family: 'Cinzel', serif;
     font-weight: 100;
@@ -250,7 +253,7 @@ button.restore {
 
 }
 
-p.showExpelled {
+p.showExpelledStudents {
     font-size: 16px;
     font-family: 'Cinzel', serif;
     font-weight: 100;
@@ -280,9 +283,16 @@ p.showExpelled {
 #expelled {
     grid-area: expelled;
     justify-self: left;
+    display: inline-block;
+    color: black;
+    background-color: transparent;
+    font-size: 20px;
+    border-radius: 5px;
+    font-weight: bold;
+
 }
 
-.counters {
+.totalNumber {
     grid-area: counter;
     display: inline-grid;
     justify-self: left;
@@ -301,13 +311,13 @@ p.showExpelled {
 }
 
 
-/*-------------------------------COUNTERS---------------------------------------------*/
+/*-------------------------------TOTAL NUMBER OF STUDENTS IN THE DIFFERENT HOUSES---------------------------------------------*/
 
-.gryfCount,
-.slyCount,
-.huffCount,
-.ravCount,
-.totalCount {
+.gryfNum,
+.slyNum,
+.huffNum,
+.ravNum,
+.totalNum {
     background-color: rgba(218, 198, 214, 0.863);
     padding: 10px;
     color: black;
@@ -405,26 +415,26 @@ p.showExpelled {
 [homeStyle="hufflepuff"] {
     --primary-color: #f509a6;
     --h1Color: #5c0b1f;
-    --background: url(img_other/hullebackground.jpg);
+    --background: url(other_pictures/hullebackground.jpg);
 }
 
 [data-house="Gryffindor"],
 [homeStyle="gryffindor"] {
     --h1Color: rgb(2, 2, 2);
     --primary-color: rgba(92, 9, 245, 0.863);
-    --background: url(img_other/gryfbackground.jpg);
+    --background: url(other_pictures/gryfbackground.jpg);
 }
 
 [data-house="Ravenclaw"],
 [homeStyle="ravenclaw"] {
     --h1Color: #9103f0;
     --primary-color: #222f5b;
-    --background: url(img_other/ravenbackground.jpg);
+    --background: url(other_pictures/ravenbackground.jpg);
 }
 
 [data-house="Slytherin"],
 [homeStyle="slytherin"] {
     --h1Color: #AAAAAA;
     --primary-color: #2a623d;
-    --background: url(img_other/slybackground.jpg);
+    --background: url(other_pictures/slybackground.jpg);
 }

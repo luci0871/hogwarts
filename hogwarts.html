@@ -16,24 +16,24 @@
   </header>
 
   <main>
-    <!--------------------------------THEMES--------------------------------------------->
-    <label id="theme-changer">
-      Choose theme
+    <!--------------------------------HOUSE THEMES--------------------------------------------->
+    <label id="shift-house-theme">
+      Choose House Theme:
       <select name="theme" id="theme">
         <option value="none">None</option>
-        <option value="gryffindor">Gryffindor theme</option>
-        <option value="hufflepuff">Hufflepuff theme</option>
-        <option value="ravenclaw">Ravenclaw theme</option>
-        <option value="slytherin">Slytherin theme</option>
+        <option value="gryffindor">Gryffindor House Theme</option>
+        <option value="hufflepuff">Hufflepuff House Theme</option>
+        <option value="ravenclaw">Ravenclaw House Theme</option>
+        <option value="slytherin">Slytherin House Theme</option>
       </select>
     </label>
 
-    <!--------------------------------SEARCH--------------------------------------------->
-    <!-- copied from W3SCHOOLS (https://www.w3schools.com/howto/howto_js_filter_lists.asp) -->
+    <!--------------------------------SEARCH BOX--------------------------------------------->
+    <!-- got it from W3SCHOOLS (https://www.w3schools.com/howto/howto_js_filter_lists.asp) -->
     <input type="text" id="myInput" onkeyup="mySearch()" placeholder="Search for names.." title="Type in a name">
 
 
-    <h1>Hogwarts students</h1>
+    <h1>Students at Hogwarts</h1>
     <!--------------------------------FILTERING--------------------------------------------->
     <div id="filters">
       <p class="filterTitle"><span>Filter by House:</span></p>
@@ -51,34 +51,36 @@
 
     <div id="mainPanel">
 
-      <div class="counters">
-        <span class="gryfCount">Gryffindor (0)</span>
-        <span class="slyCount">Slytherin (0)</span>
-        <span class="huffCount">Hufflepuff (0)</span>
-        <span class="ravCount">Ravenclaw (0)</span>
-        <span class="totalCount">Total(0)</span>
+      <div class="totalNumber">
+        <span class="gryfNum">Gryffindor (0)</span>
+        <span class="slyNum">Slytherin (0)</span>
+        <span class="huffNum">Hufflepuff (0)</span>
+        <span class="ravNum">Ravenclaw (0)</span>
+        <span class="totalNum">Total(0)</span>
       </div>
-      <!--------------------------------SORTING--------------------------------------------->
+      <!--------------------------------SORTING STUDENTS--------------------------------------------->
       <div id="sorting">
-        <p class="sortBy" data-action="sort" data-sort-direction="asc" data-sort="firstN">Sort by: First Name</p>
-        <p class="sortBy" data-action="sort" data-sort-direction="asc" data-sort="lastN">Sort by: Last Name</p>
-        <p class="sortBy" data-action="sort" data-sort-direction="asc" data-sort="houseN">Sort by: House Name</p>
+        Sort Students By: 
+        <p class="organizeBy" data-action="sort" data-sort-direction="asc" data-sort="firstN">First Name</p>
+        <p class="organizeBy" data-action="sort" data-sort-direction="asc" data-sort="lastN">Last Name</p>
+        <p class="organizeBy" data-action="sort" data-sort-direction="asc" data-sort="houseN">House Name</p>
       </div>
 
-      <!--------------------------------EXPELLED--------------------------------------------->
+      <!--------------------------------EXPELLED STUDENTS--------------------------------------------->
       <div id="expelled">
-        <p class="showExpelled">View Expelled<span class="expelCount">Counter</span></p>
-        <button class="restore">Display All (Expelled or not)</button>
+        Show a List of:
+        <p class="showExpelledStudents">Expelled Students<span class="expelCount">Counter</span></p>
+        <button class="restore">All Students (Expelled or not)</button>
       </div>
       <!--  <p class="list school_Prefect">list here school_prefect:</p> -->
 
     </div>
-    <!--------------------------------HACKING--------------------------------------------->
+    <!--------------------------------HACK THE STUDENT LIST--------------------------------------------->
 
-    <button class="hackTheSystem" id="typewriter">Hack the System!</button>
+    <button class="hackTheStudentList" id="typewriter">Hack the Student List!</button>
 
     <!--------------------------------TEMPLATE--------------------------------------------->
-    <template class="templateMain">
+    <template class="mainTemplate">
       <article>
         <img class="studentPic">
         <div data-field="star">⭐</div>
@@ -97,23 +99,23 @@
 
     </section>
 
-    <!-- Dialogs for handling too many winners -->
+    <!-- Dialogs for handling too many prefects -->
 
     <div id="onlytwoschool_prefects" class="dialog">
       <div class="dialogcontent">
         <button class="closebutton">close</button>
-        <h1>You can only have two Prefects!</h1>
+        <h1>You can maximum have two prefects!</h1>
         <h2>Remove one, before you appoint more</h2>
         <p><button data-action="remove1">remove</button> <span class="student1">NAME, the TYPE</span></p>
         <p><button data-action="remove2">remove</button> <span class="student2">NAME, the TYPE</span></p>
       </div>
     </div>
 
-    <div id="onlyonekind" class="dialog">
+    <div id="onlyoneofeachgender" class="dialog">
       <div class="dialogcontent">
         <button class="closebutton">close</button>
-        <h1>You can only have one prefect of each gender</h1>
-        <h2>Remove the other if you want to appoint a new one</h2>
+        <h1>You can only have one prefect of each gender!</h1>
+        <h2>Remove one, before you appoint another</h2>
         <p><button data-action="remove1">remove</button> <span class="student1">NAME, the TYPE</span></p>
       </div>
     </div>
