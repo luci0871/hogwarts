@@ -2,43 +2,39 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Students at Hogwarts</title>
+  <title>Hogwarts students</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css?family=Cinzel|Jim+Nightshade|Quattrocento&display=swap" rel="stylesheet">
-
 </head>
 
-<body houseStyle="">
+<body homeStyle="">
 
   <header>
-    <div class="studentsImage"></div>
+    <div class="headerPic"></div>
   </header>
 
   <main>
-
-    <!------HOUSES------>
-    <label id="house-changer">
-      Choose House
-      <select name="house" id="house">
-        <option value="None">None</option>
-        <option value="Gryffindor">Gryffindor</option>
-        <option value="Hufflepuff">Hufflepuff</option>
-        <option value="Ravenclaw">Ravenclaw</option>
-        <option value="Slytherin">Slytherin</option>
+    <!--------------------------------THEMES--------------------------------------------->
+    <label id="theme-changer">
+      Choose theme
+      <select name="theme" id="theme">
+        <option value="none">None</option>
+        <option value="gryffindor">Gryffindor theme</option>
+        <option value="hufflepuff">Hufflepuff theme</option>
+        <option value="ravenclaw">Ravenclaw theme</option>
+        <option value="slytherin">Slytherin theme</option>
       </select>
     </label>
 
-
-    <!------SEARCH BOX------>
-    <!-- got it from (https://www.w3schools.com/howto/howto_js_filter_lists.asp) -->
+    <!--------------------------------SEARCH--------------------------------------------->
+    <!-- copied from W3SCHOOLS (https://www.w3schools.com/howto/howto_js_filter_lists.asp) -->
     <input type="text" id="myInput" onkeyup="mySearch()" placeholder="Search for names.." title="Type in a name">
 
 
-    <h1>Students at Hogwarts</h1>
-
-    <!------FILTERING students by house------>
+    <h1>Hogwarts students</h1>
+    <!--------------------------------FILTERING--------------------------------------------->
     <div id="filters">
       <p class="filterTitle"><span>Filter by House:</span></p>
       <button class="filter" data-action="filter" data-filter="Gryffindor"><img src="houses/gryffindor.png"
@@ -49,103 +45,104 @@
           alt="Hufflepuff" class="buttonFilter"></button>
       <button class="filter" data-action="filter" data-filter="Ravenclaw"><img src="houses/ravenclaw.png"
           alt="Ravenclaw" class="buttonFilter"></button>
-      <button class="filter" data-action="filter" data-filter="*"><img src="houses/hogwarts.png" alt="Hogwarts Crest"
+      <button class="filter" data-action="filter" data-filter="*"><img src="houses/hogwarts.png" alt="Hogwarts Houses"
           class="buttonFilter"></button>
     </div>
 
     <div id="mainPanel">
 
-      <div class="totalnumber">
-        <span class="gryfNumber">Gryffindor (0)</span>
-        <span class="slyNumber">Slytherin (0)</span>
-        <span class="huffNumber">Hufflepuff (0)</span>
-        <span class="ravNumber">Ravenclaw (0)</span>
-        <span class="totalNumber">Total(0)</span>
+      <div class="counters">
+        <span class="gryfCount">Gryffindor (0)</span>
+        <span class="slyCount">Slytherin (0)</span>
+        <span class="huffCount">Hufflepuff (0)</span>
+        <span class="ravCount">Ravenclaw (0)</span>
+        <span class="totalCount">Total(0)</span>
+      </div>
+      <!--------------------------------SORTING--------------------------------------------->
+      <div id="sorting">
+        <p class="sortBy" data-action="sort" data-sort-direction="asc" data-sort="firstN">Sort by: First Name</p>
+        <p class="sortBy" data-action="sort" data-sort-direction="asc" data-sort="lastN">Sort by: Last Name</p>
+        <p class="sortBy" data-action="sort" data-sort-direction="asc" data-sort="houseN">Sort by: House Name</p>
       </div>
 
-      <!------SORTING STUDENTS by Name or House------>
-      <div id="sortstudents">
-        <p class="sortBy" data-action="sort" data-sort-direction="asc" data-sort="firstName">Sort by: First Name</p>
-        <p class="sortBy" data-action="sort" data-sort-direction="asc" data-sort="lastName">Sort by: Last Name</p>
-        <p class="sortBy" data-action="sort" data-sort-direction="asc" data-sort="houseName">Sort by: House Name</p>
-      </div>
-
-
-      <!-------EXPELLED or not?------->
+      <!--------------------------------EXPELLED--------------------------------------------->
       <div id="expelled">
-        <p class="showExpelled">View Expelled Students<span class="expelCount"></span></p>
-        <button class="restore">Show All Students (Expelled or not)</button>
+        <p class="showExpelled">View Expelled<span class="expelCount">Counter</span></p>
+        <button class="restore">Display All (Expelled or not)</button>
       </div>
-      <!--  <p class="listPrefects">list here prefects:</p> -->
+      <!--  <p class="list school_Prefect">list here school_prefect:</p> -->
 
     </div>
+    <!--------------------------------HACKING--------------------------------------------->
 
+    <button class="hackTheSystem" id="typewriter">Hack the System!</button>
 
-    <!------HACKING The Student List------>
-
-    <button class="hackTheStudentList" id="typewriter">Hack the List of Students!</button>
-
-
-    <!-----MAIN TEMPLATE--------->
-    <template class="mainTemplate">
+    <!--------------------------------TEMPLATE--------------------------------------------->
+    <template class="templateMain">
       <article>
-        <img class="studentImg">
+        <img class="studentPic">
         <div data-field="star">⭐</div>
-        <p class="studentsFirst"></p>
+        <p class="studentsName"></p>
         <p class="studentsMiddle"></p>
         <p class="studentsLast"></p>
         <p class="studentsFull"></p>
         <p class="gender"></p>
         <p class="houseName"></p>
-        <button>More</button>
+        <button class="more">More</button>
         <button class="expell">Expell</button>
 
       </article>
     </template>
-    <section id="mainStudents">
+    <section id="studentsMain">
 
     </section>
 
-    <!------IF TOO MANY PREFECTS----->
+    <!-- Dialogs for handling too many winners -->
 
-    <div id="maxtwoprefects" class="dialog">
+    <div id="onlytwoschool_prefects" class="dialog">
       <div class="dialogcontent">
         <button class="closebutton">close</button>
         <h1>You can only have two Prefects!</h1>
-        <h2>Remove one to appoint another</h2>
+        <h2>Remove one, before you appoint more</h2>
         <p><button data-action="remove1">remove</button> <span class="student1">NAME, the TYPE</span></p>
         <p><button data-action="remove2">remove</button> <span class="student2">NAME, the TYPE</span></p>
       </div>
     </div>
 
-    <div id="onlyoneofeachgender" class="dialog">
+    <div id="onlyonekind" class="dialog">
       <div class="dialogcontent">
         <button class="closebutton">close</button>
         <h1>You can only have one prefect of each gender</h1>
-        <h2>Remove one to appoint another</h2>
+        <h2>Remove the other if you want to appoint a new one</h2>
         <p><button data-action="remove1">remove</button> <span class="student1">NAME, the TYPE</span></p>
       </div>
     </div>
 
 
-    <script src="jscript.js"></script>
 
+
+
+
+
+    <script src="jscript.js"></script>
 </body>
 
 </main>
+
+<!--------------------------------MODAL--------------------------------------------->
 <div class="modal-background hide">
-  <div class="modal-info" id="modal-info" info-house="">
-    <img class="modalHouse">
-    <img id="picPrefect">
-    <p class="modalStudentFirst" homeStyle="">First Name</p>
-    <p class="modalStudentSecond">Second Name</p>
-    <p class="modalStudentLast">Last Name</p>
-    <p class="modalPrefect">Prefect studend or not</p>
-    <p class="modalExpelled">Expelled studend or not</p>
-    <img class="modalImg">
+
+  <div class="modal-content" id="modal-content" data-house="">
+    <img class="modalHouses">
+    <img id="imageSchool_Prefect">
+    <p class="modalStudentsName" houseStyle="">first name here</p>
+    <p class="modalStudentsMiddle">middle name here</p>
+    <p class="modalStudentsLast">last name here</p>
+    <p class="modalSchool_Prefect">Is the student a Prefect or not</p>
+    <p class="modalExpelled">Was the student expelled or not</p>
+    <img class="modalPic">
 
   </div>
-
 </div>
 
 </html>
