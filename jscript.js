@@ -55,10 +55,10 @@ function start() {
     document.querySelector("[data-sort='lastN']").addEventListener("click", sortLast);
     document.querySelector("[data-sort='houseN']").addEventListener("click", sortHouse);
     //Expelled
-    document.querySelector(".showExpelled").addEventListener("click", showExpelled);
+    document.querySelector(".showExpelledStudents").addEventListener("click", showExpelledStudents);
     document.querySelector(".restore").addEventListener("click", restoreExpelled);
     //Hack the System
-    document.querySelector(".hackTheSystem").addEventListener("click", hackTheSystem);
+    document.querySelector(".hackTheStudentList").addEventListener("click", hackTheStudentList);
 }
 
 async function loadJSON() {
@@ -118,7 +118,7 @@ function filterGry() {
     let onlyGry = allStudents.filter(displayGry);
     displayList(onlyGry)
     //filter counter
-    document.querySelector(".gryfCount").textContent = `Gryffindor (${onlyGry.length})`;
+    document.querySelector(".gryfNum").textContent = `Gryffindor (${onlyGry.length})`;
 
     function displayGry(student) {
         return student.house === "Gryffindor";
@@ -130,7 +130,7 @@ function filterSly() {
     let onlySly = allStudents.filter(displaySly);
     displayList(onlySly)
     //filter counter
-    document.querySelector(".slyCount").textContent = `Slytherin (${onlySly.length})`;
+    document.querySelector(".slyNum").textContent = `Slytherin (${onlySly.length})`;
 
     function displaySly(student) {
         return student.house === "Slytherin";
@@ -141,7 +141,7 @@ function filterHuf() {
     let onlyHuf = allStudents.filter(displayHuf);
     displayList(onlyHuf)
     //filter counter
-    document.querySelector(".huffCount").textContent = `Hufflepuff (${onlyHuf.length})`;
+    document.querySelector(".huffNum").textContent = `Hufflepuff (${onlyHuf.length})`;
 
     function displayHuf(student) {
         return student.house === "Hufflepuff";
@@ -152,7 +152,7 @@ function filterRav() {
     let onlyRav = allStudents.filter(displayRav);
     displayList(onlyRav)
     //filter counter
-    document.querySelector(".ravCount").textContent = `Ravenclaw (${onlyRav.length})`;
+    document.querySelector(".ravNum").textContent = `Ravenclaw (${onlyRav.length})`;
 
     function displayRav(student) {
         return student.house === "Ravenclaw";
@@ -162,7 +162,7 @@ function filterRav() {
 function filterAll() {
     displayList(allStudents)
     //filter counter
-    document.querySelector(".totalCount").textContent = `Total (${allStudents.length})`;
+    document.querySelector(".totalNum").textContent = `Total (${allStudents.length})`;
 }
 
 /* ---------------------------------------------LISTS------------------------------------------------------------------------------- */
@@ -183,7 +183,7 @@ function displayStudent(student) {
     //Select a Theme:
     document.querySelector("select#theme").addEventListener("change", selectTheme);
     //Clone template
-    const template = document.querySelector(".templateMain").content;
+    const template = document.querySelector(".mainTemplate").content;
     const studentCopy = template.cloneNode(true);
     //star
     studentCopy.querySelector("[data-field=star").dataset.star = student.star;
@@ -207,18 +207,18 @@ function displayStudent(student) {
     //Overview: 
     studentCopy.querySelector(".studentsFull").textContent = student.newName;
     studentCopy.querySelector(".houseName").textContent = student.house;
-    studentCopy.querySelector(".studentPic").src = `images/${student.lastName.toLowerCase() + "_" + student.firstName[0].substring(0, 1).toLowerCase() + ".png"}`;
-    //------- fix images
+    studentCopy.querySelector(".studentPic").src = `pictures/${student.lastName.toLowerCase() + "_" + student.firstName[0].substring(0, 1).toLowerCase() + ".png"}`;
+    //------- fix pictures
     if (student.firstName == "Padma") {
-        studentCopy.querySelector(".studentPic").src = "images/" + student.lastName.toLowerCase() + "_" + "padme" + ".png";
+        studentCopy.querySelector(".studentPic").src = "pictures/" + student.lastName.toLowerCase() + "_" + "padme" + ".png";
     } else if (student.lastName == "Patil") {
-        studentCopy.querySelector(".studentPic").src = "images/" + student.lastName.toLowerCase() + "_" + student.firstName.toLowerCase() + ".png";
+        studentCopy.querySelector(".studentPic").src = "pictures/" + student.lastName.toLowerCase() + "_" + student.firstName.toLowerCase() + ".png";
     } else if (student.firstName == "Leanne") {
-        studentCopy.querySelector(".studentPic").src = "images/" + "li_s" + ".png";
+        studentCopy.querySelector(".studentPic").src = "pictures/" + "li_s" + ".png";
     } else if (student.lastName == "Finch-fletchley") {
-        studentCopy.querySelector(".studentPic").src = "images/" + "fletchley" + "_" + student.firstName.substring(0, 1).toLowerCase() + ".png";
+        studentCopy.querySelector(".studentPic").src = "pictures/" + "fletchley" + "_" + student.firstName.substring(0, 1).toLowerCase() + ".png";
     } else {
-        studentCopy.querySelector(".studentPic").src = "images/" + student.lastName.toLowerCase() + "_" + student.firstName[0].substring(0, 1).toLowerCase() + ".png";
+        studentCopy.querySelector(".studentPic").src = "pictures/" + student.lastName.toLowerCase() + "_" + student.firstName[0].substring(0, 1).toLowerCase() + ".png";
     }
 
     //-------------------MODAL--------------------
@@ -231,20 +231,20 @@ function displayStudent(student) {
         document.querySelector(".modalStudentsName").textContent = `First name: ${student.firstName}`;
         document.querySelector(".modalStudentsMiddle").textContent = `Middle name: ${student.middleName}`;
         document.querySelector(".modalStudentsLast").textContent = `Last name: ${student.lastName}`;
-        document.querySelector(".modalPic").src = `images/${student.lastName.toLowerCase() + "_" + student.firstName[0].substring(0, 1).toLowerCase() + ".png"}`;
+        document.querySelector(".modalPic").src = `pictures/${student.lastName.toLowerCase() + "_" + student.firstName[0].substring(0, 1).toLowerCase() + ".png"}`;
         document.querySelector(".modalHouses").src = `Houses/${student.house.substring(0,1).toLowerCase() + student.house.substring(1,  ).toLowerCase() + ".png"}`;
         //document.querySelector("#image school_Prefect").src = `school_prefect/${"school_prefect_"+ student.house + ".png"}`;
-        //------- fix images modal
+        //------- fix pictures modal
         if (student.firstName == "Padma") {
-            document.querySelector(".modalPic").src = "images/" + student.lastName.toLowerCase() + "_" + "padme" + ".png";
+            document.querySelector(".modalPic").src = "pictures/" + student.lastName.toLowerCase() + "_" + "padme" + ".png";
         } else if (student.lastName == "Patil") {
-            document.querySelector(".modalPic").src = "images/" + student.lastName.toLowerCase() + "_" + student.firstName.toLowerCase() + ".png";
+            document.querySelector(".modalPic").src = "pictures/" + student.lastName.toLowerCase() + "_" + student.firstName.toLowerCase() + ".png";
         } else if (student.firstName == "Leanne") {
-            document.querySelector(".modalPic").src = "images/" + "li_s" + ".png";
+            document.querySelector(".modalPic").src = "pictures/" + "li_s" + ".png";
         } else if (student.lastName == "Finch-fletchley") {
-            document.querySelector(".modalPic").src = "images/" + "fletchley" + "_" + student.firstName.substring(0, 1).toLowerCase() + ".png";
+            document.querySelector(".modalPic").src = "pictures/" + "fletchley" + "_" + student.firstName.substring(0, 1).toLowerCase() + ".png";
         } else {
-            document.querySelector(".modalPic").src = "images/" + student.lastName.toLowerCase() + "_" + student.firstName[0].substring(0, 1).toLowerCase() + ".png";
+            document.querySelector(".modalPic").src = "pictures/" + student.lastName.toLowerCase() + "_" + student.firstName[0].substring(0, 1).toLowerCase() + ".png";
         }
 
         console.log(student.star)
@@ -420,22 +420,22 @@ function differentType(student) {
             console.log(school_prefects[0])
             console.log(school_prefects)
             console.log(student.star)
-            document.querySelector("#onlyonekind").classList.add("show")
+            document.querySelector("#onlyoneofeachgender").classList.add("show")
             //find the one that has the same type:
             console.log(school_prefects[0].firstName)
-            document.querySelector("#onlyonekind .student1").textContent = `${school_prefects[0].newName} (${school_prefects[0].gender})`;
-            document.querySelector("#onlyonekind [data-action=remove1]").addEventListener("click", function () {
+            document.querySelector("#onlyoneofeachgender .student1").textContent = `${school_prefects[0].newName} (${school_prefects[0].gender})`;
+            document.querySelector("#onlyoneofeachgender [data-action=remove1]").addEventListener("click", function () {
                 console.log(school_prefects[0])
                 //give the value False to the duplicate that has to be removed:
                 school_prefects[0].star = false;
                 student.star = true;
                 //immediately close dialog:
-                document.querySelector("#onlyonekind").classList.remove("show")
+                document.querySelector("#onlyoneofeachgender").classList.remove("show")
                 displayList(allStudents);
             })
             //option close dialog:   
-            document.querySelector("#onlyonekind .closebutton").addEventListener("click", function () {
-                document.querySelector("#onlyonekind").classList.remove("show")
+            document.querySelector("#onlyoneofeachgender .closebutton").addEventListener("click", function () {
+                document.querySelector("#onlyoneofeachgender").classList.remove("show")
             })
             displayList(allStudents);
         }
@@ -495,7 +495,7 @@ function expelStudent(student) {
     console.log(expelledList)
 }
 
-function showExpelled() {
+function showExpelledStudents() {
     console.log(expelledList)
     console.log(allStudents)
     displayList(expelledList)
@@ -509,7 +509,7 @@ function restoreExpelled() {
 
 /* ---------------------------------------------HACK THE SYSTEM------------------------------------------------------------------------------- */
 
-function hackTheSystem() {
+function hackTheStudentList() {
     console.log(allStudents)
     console.log(hackedOne)
     //allStudents = allStudents.push(hackedOne);
@@ -536,7 +536,7 @@ function selectTheme() {
 /* ---------------------------------------------TYPEWRITER------------------------------------------------------------------------------- */
 
 
-const element = document.querySelector(".hackTheSystem");
+const element = document.querySelector(".hackTheStudentList");
 typewriter(element, done);
 
 function done() {
@@ -544,7 +544,7 @@ function done() {
 }
 
 function typewriter(element, callback) {
-    let sentence = document.querySelector(".hackTheSystem").textContent;
+    let sentence = document.querySelector(".hackTheStudentList").textContent;
     //console.log(sentence)
     let counter = 0;
     //console.log(counter)
