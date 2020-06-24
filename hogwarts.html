@@ -37,16 +37,16 @@
     <!--------------------------------FILTERING--------------------------------------------->
     <div id="filters">
       <p class="filterTitle"><span>Filter by House:</span></p>
-      <button class="filter" data-action="filter" data-filter="Gryffindor"><img src="houses/gryffindor.png"
+      <button class="filter" id="zoom-in" data-action="filter" data-filter="Gryffindor"><img src="houses/gryffindor.png"
           alt="Gryffindor" class="buttonFilter"></button>
-      <button class="filter" data-action="filter" data-filter="Slytherin"><img src="houses/slytherin.png"
+      <button class="filter" id="zoom-in" data-action="filter" data-filter="Slytherin"><img src="houses/slytherin.png"
           alt="Slytherin" class="buttonFilter"></button>
-      <button class="filter" data-action="filter" data-filter="Hufflepuff"><img src="houses/hufflepuff.png"
+      <button class="filter" id="zoom-in" data-action="filter" data-filter="Hufflepuff"><img src="houses/hufflepuff.png"
           alt="Hufflepuff" class="buttonFilter"></button>
-      <button class="filter" data-action="filter" data-filter="Ravenclaw"><img src="houses/ravenclaw.png"
+      <button class="filter" id="zoom-in" data-action="filter" data-filter="Ravenclaw"><img src="houses/ravenclaw.png"
           alt="Ravenclaw" class="buttonFilter"></button>
-      <button class="filter" data-action="filter" data-filter="*"><img src="houses/hogwarts.png" alt="Hogwarts Houses"
-          class="buttonFilter"></button>
+      <button class="filter" id="zoom-in" data-action="filter" data-filter="*"><img src="houses/hogwarts.png"
+          alt="Hogwarts Houses" class="buttonFilter"></button>
     </div>
 
     <div id="mainPanel">
@@ -60,7 +60,7 @@
       </div>
       <!--------------------------------SORTING STUDENTS--------------------------------------------->
       <div id="sorting">
-        Sort Students By: 
+        Sort Students By:
         <p class="organizeBy" data-action="sort" data-sort-direction="asc" data-sort="firstN">First Name</p>
         <p class="organizeBy" data-action="sort" data-sort-direction="asc" data-sort="lastN">Last Name</p>
         <p class="organizeBy" data-action="sort" data-sort-direction="asc" data-sort="houseN">House Name</p>
@@ -90,8 +90,8 @@
         <p class="studentsFull"></p>
         <p class="gender"></p>
         <p class="houseName"></p>
-        <button class="more">More</button>
-        <button class="expell">Expell</button>
+        <button class="more" id="zoom-in">More</button>
+        <button class="expell" id="zoom-in">Expell</button>
 
       </article>
     </template>
