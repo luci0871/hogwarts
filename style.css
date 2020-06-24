@@ -62,6 +62,7 @@ select#theme {
     font-family: 'Quattrocento', serif;
     padding: 5px;
     font-size: inherit;
+    margin-top: 30px;
 }
 
 #shift-house-theme {
@@ -185,6 +186,7 @@ article {
     font-size: 20px;
     border-radius: 5px;
     font-weight: bold;
+    margin-top: 1px;
 
     
 }
@@ -289,6 +291,7 @@ p.showExpelledStudents {
     font-size: 20px;
     border-radius: 5px;
     font-weight: bold;
+    margin-top: 1px;
 
 }
 
