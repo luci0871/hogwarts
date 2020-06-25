@@ -58,7 +58,7 @@ function start() {
     document.querySelector(".showExpelledStudents").addEventListener("click", showExpelledStudents);
     document.querySelector(".restore").addEventListener("click", restoreExpelled);
     //Hacking the System
-    document.querySelector(".hackTheSystem").addEventListener("click", hackTheStudentList);
+    document.querySelector(".hackTheSystem").addEventListener("click", hackTheSystem);
 }
 
 async function loadJSON() {
@@ -509,7 +509,7 @@ function restoreExpelled() {
 
 /* ---------------------------------------------HACK THE SYSTEM------------------------------------------------------------------------------- */
 
-function hackTheStudentList() {
+function hackTheSystem() {
     console.log(allStudents)
     console.log(hackedOne)
     //allStudents = allStudents.push(hackedOne);
@@ -536,7 +536,7 @@ function selectTheme() {
 /* ---------------------------------------------TYPEWRITER------------------------------------------------------------------------------- */
 
 
-const element = document.querySelector(".hackTheStudentList");
+const element = document.querySelector(".hackTheSystem");
 typewriter(element, done);
 
 function done() {
@@ -544,7 +544,7 @@ function done() {
 }
 
 function typewriter(element, callback) {
-    let sentence = document.querySelector(".hackTheStudentList").textContent;
+    let sentence = document.querySelector(".hackTheSystem").textContent;
     //console.log(sentence)
     let counter = 0;
     //console.log(counter)
