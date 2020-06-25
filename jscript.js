@@ -44,7 +44,7 @@ const Student = {
 function start() {
     console.log("starting")
     loadJSON();
-    // filters
+    //Filtering 
     document.querySelector("[data-filter='Gryffindor']").addEventListener("click", filterGry);
     document.querySelector("[data-filter='Slytherin']").addEventListener("click", filterSly);
     document.querySelector("[data-filter='Hufflepuff']").addEventListener("click", filterHuf);
@@ -54,11 +54,11 @@ function start() {
     document.querySelector("[data-sort='firstN']").addEventListener("click", sortFirst);
     document.querySelector("[data-sort='lastN']").addEventListener("click", sortLast);
     document.querySelector("[data-sort='houseN']").addEventListener("click", sortHouse);
-    //Expelled
+    //Expelling
     document.querySelector(".showExpelledStudents").addEventListener("click", showExpelledStudents);
     document.querySelector(".restore").addEventListener("click", restoreExpelled);
-    //Hack the System
-    document.querySelector(".hackTheStudentList").addEventListener("click", hackTheStudentList);
+    //Hacking the System
+    document.querySelector(".hackTheSystem").addEventListener("click", hackTheStudentList);
 }
 
 async function loadJSON() {
